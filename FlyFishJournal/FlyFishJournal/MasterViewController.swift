@@ -32,15 +32,41 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Dispose of any resources that can be recreated.
     }
 
+    
+    // MARK: - get Entry text via UIAlertController
     func insertNewObject(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .Alert)
+        
+        let createAction = UIAlertAction(title: "Create Entry", style: .Default) { (_) in
+            let entryTextField = alertController.textFields![0] as UITextField
+            self.createWithText(entryTextField.text)
+        }
+        createAction.enabled = false
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Was it a whopper?"
+            
+            NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
+                createAction.enabled = textField.text != ""
+            }
+        }
+        
+        alertController.addAction(createAction)
+        alertController.addAction(cancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    //MARK: creation callback
+    func createWithText(text:String) {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as NSManagedObject
-             
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
-             
+        let newEntry = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as ABHEntry
+        
+        newEntry.timeStamp = NSDate()  // Static types!
+        newEntry.text = text           // Removed KVC and magic strings
+        
         // Save the context.
         var error: NSError? = nil
         if !context.save(&error) {
@@ -52,11 +78,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     // MARK: - Segues
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as ABHEntry
             (segue.destinationViewController as DetailViewController).detailItem = object
             }
         }
@@ -100,8 +125,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-        cell.textLabel.text = object.valueForKey("timeStamp")!.description
+        let entry = self.fetchedResultsController.objectAtIndexPath(indexPath) as ABHEntry
+        cell.textLabel.text = entry.text
     }
 
     // MARK: - Fetched results controller
@@ -113,7 +138,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let fetchRequest = NSFetchRequest()
         // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("Event", inManagedObjectContext: self.managedObjectContext!)
+        let entity = NSEntityDescription.entityForName("ABHEntry", inManagedObjectContext: self.managedObjectContext!)
         fetchRequest.entity = entity
         
         // Set the batch size to a suitable number.

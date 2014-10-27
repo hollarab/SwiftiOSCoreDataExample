@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
 
-    var detailItem: AnyObject? {
+    var detailItem: ABHEntry? {
         didSet {
             // Update the view.
             self.configureView()
@@ -22,9 +22,15 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
+        if let entry:ABHEntry = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.valueForKey("timeStamp")!.description
+                
+                // NOTE - don't move formatters into NSManagedObjects.  ViewControllers own those, so they may be reused.
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let str = dateFormatter.stringFromDate(entry.timeStamp)
+                
+                label.text = str + ":" + entry.text
             }
         }
     }

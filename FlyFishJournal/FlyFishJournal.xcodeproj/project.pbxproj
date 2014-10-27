@@ -15,6 +15,8 @@
 		A81D0F4D19FEB1C8003E2B28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A81D0F4C19FEB1C8003E2B28 /* Images.xcassets */; };
 		A81D0F5019FEB1C8003E2B28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81D0F4E19FEB1C8003E2B28 /* LaunchScreen.xib */; };
 		A81D0F5C19FEB1C8003E2B28 /* FlyFishJournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F5B19FEB1C8003E2B28 /* FlyFishJournalTests.swift */; };
+		A81D0F6719FEC0D5003E2B28 /* ABHEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F6619FEC0D5003E2B28 /* ABHEntry.swift */; };
+		A81D0F6819FEC0D5003E2B28 /* ABHEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F6619FEC0D5003E2B28 /* ABHEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 		A81D0F5519FEB1C8003E2B28 /* FlyFishJournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyFishJournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A81D0F5A19FEB1C8003E2B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A81D0F5B19FEB1C8003E2B28 /* FlyFishJournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyFishJournalTests.swift; sourceTree = "<group>"; };
+		A81D0F6619FEC0D5003E2B28 /* ABHEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABHEntry.swift; path = NSManagedObjects/ABHEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		A81D0F3D19FEB1C8003E2B28 /* FlyFishJournal */ = {
 			isa = PBXGroup;
 			children = (
+				A81D0F6519FEC09F003E2B28 /* NSManagedObjects */,
 				A81D0F4019FEB1C8003E2B28 /* AppDelegate.swift */,
 				A81D0F4519FEB1C8003E2B28 /* MasterViewController.swift */,
 				A81D0F4719FEB1C8003E2B28 /* DetailViewController.swift */,
@@ -116,6 +120,14 @@
 				A81D0F5A19FEB1C8003E2B28 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A81D0F6519FEC09F003E2B28 /* NSManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				A81D0F6619FEC0D5003E2B28 /* ABHEntry.swift */,
+			);
+			name = NSManagedObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81D0F6719FEC0D5003E2B28 /* ABHEntry.swift in Sources */,
 				A81D0F4119FEB1C8003E2B28 /* AppDelegate.swift in Sources */,
 				A81D0F4419FEB1C8003E2B28 /* FlyFishJournal.xcdatamodeld in Sources */,
 				A81D0F4619FEB1C8003E2B28 /* MasterViewController.swift in Sources */,
@@ -229,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81D0F6819FEC0D5003E2B28 /* ABHEntry.swift in Sources */,
 				A81D0F5C19FEB1C8003E2B28 /* FlyFishJournalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +427,7 @@
 				A81D0F6119FEB1C8003E2B28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A81D0F6219FEB1C8003E2B28 /* Build configuration list for PBXNativeTarget "FlyFishJournalTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +436,7 @@
 				A81D0F6419FEB1C8003E2B28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
