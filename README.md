@@ -19,7 +19,7 @@ To illustrate well:
  * an Universal app.  this is an iphone app.
  * a Swift tutorial. e.g, not the complete demystification of [Swift's Optional Type](https://developer.apple.com/library/ios/documentation/swift/conceptual/swift_programming_language/Types.html#//apple_ref/doc/uid/TP40014097-CH31-XID_1126).
  * an introduction to CoreData itself.  if this is all you know, then you're armed and extremely dangerous.
- * a tutorial on thread safety or testing.
+ * a tutorial on thread safety or testing.  in fact, we're not even loading the store from a background thread.
 
 # References / Built upon
  * [Paul Goracke's awesome Core Data Potpourri](http://vimeo.com/89370886) Seattle Xcoders, February 13, 2014
@@ -34,6 +34,6 @@ To illustrate well:
  * threads
  * iCloud integration
  * Instruments (which isn't really different)
- * 3rd party library integration: [MagicalRecord](https://github.com/magicalpanda) for example
+ * 3rd party library integration: [MagicalRecord](https://github.com/magicalpanda) or [mogenerator](https://github.com/rentzsch/mogenerator) for example
 
 

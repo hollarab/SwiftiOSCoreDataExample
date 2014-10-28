@@ -9,9 +9,17 @@
 import Foundation
 import CoreData
 
-class ABHEntry: NSManagedObject {
+class ABHEntry: ABHManagedObject {
 
     @NSManaged var timeStamp: NSDate
     @NSManaged var text: String
 
+    override class var entityName:String {
+        return "ABHEntry"
+    }
+    
+    override class func sortDescriptors() -> [AnyObject]? {
+        return [NSSortDescriptor(key: "timeStamp", ascending: false)]
+    }
+    
 }
