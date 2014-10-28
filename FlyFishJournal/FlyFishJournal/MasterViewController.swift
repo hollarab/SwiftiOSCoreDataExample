@@ -35,23 +35,32 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     // MARK: - get Entry text via UIAlertController
     func insertNewObject(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Tell us about it!", message: nil, preferredStyle: .Alert)
         
         let createAction = UIAlertAction(title: "Create Entry", style: .Default) { (_) in
-            let entryTextField = alertController.textFields![0] as UITextField
-            self.createWithText(entryTextField.text)
+            let titleTextField = alertController.textFields![0] as UITextField
+            let entryTextField = alertController.textFields![1] as UITextField
+            let ratingTextField = alertController.textFields![2] as UITextField
+            self.createWithText(entryTextField.text, rating:ratingTextField.text, title:titleTextField.text)
         }
         createAction.enabled = false
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
         
+        alertController.addTextFieldWithConfigurationHandler({ (textField) in
+            textField.placeholder = "Entry title"
+        })
+        
         alertController.addTextFieldWithConfigurationHandler { (textField) in
             textField.placeholder = "Was it a whopper?"
-            
             NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
                 createAction.enabled = textField.text != ""
             }
         }
+        
+        alertController.addTextFieldWithConfigurationHandler({ (textField) in
+            textField.placeholder = "Rate from 1 -> 5"
+        })
         
         alertController.addAction(createAction)
         alertController.addAction(cancelAction)
@@ -59,12 +68,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     //MARK: creation callback
-    func createWithText(text:String) {
+    func createWithText(text:String, rating:String, title:String) {
         let context = self.managedObjectContext!
         let newEntry = ABHEntry.newInstanceInManagedObjectContext(context) as ABHEntry
         
         newEntry.timeStamp = NSDate()  // Static types!
         newEntry.text = text           // Removed KVC and magic strings
+        newEntry.title = title
+        
+        if !rating.isEmpty {
+            newEntry.rating = NSNumber(integer:rating.toInt()!)
+        }
         
         // Save the context.
         var error: NSError? = nil

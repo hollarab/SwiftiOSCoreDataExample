@@ -38,9 +38,15 @@ class ABHManagedObjectContext: NSManagedObjectContext {
       // Instanciate PSC
         var coordinator = NSPersistentStoreCoordinator(managedObjectModel: mergedModel!)
         
+        //add auto-migration to the options
+        var optionsCopy:[NSObject:AnyObject]? = options
+        if( optionsCopy == nil ) { optionsCopy = Dictionary() }
+        optionsCopy![NSMigratePersistentStoresAutomaticallyOption] = true
+        optionsCopy![NSInferMappingModelAutomaticallyOption] = true
+        
       // Add Stores
         var error: NSError? = nil
-        var store:NSPersistentStore? = coordinator.addPersistentStoreWithType(storeType, configuration: nil, URL: storeURL, options: options, error: &error)
+        var store:NSPersistentStore? = coordinator.addPersistentStoreWithType(storeType, configuration: nil, URL: storeURL, options: optionsCopy, error: &error)
         
         assert(store != nil, "Store error: \(error?.description)")
         

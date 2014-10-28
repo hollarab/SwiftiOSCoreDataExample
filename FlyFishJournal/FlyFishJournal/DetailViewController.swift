@@ -27,10 +27,22 @@ class DetailViewController: UIViewController {
                 
                 // NOTE - don't move formatters into NSManagedObjects.  ViewControllers own those, so they may be reused.
                 let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                let str = dateFormatter.stringFromDate(entry.timeStamp)
+                dateFormatter.dateFormat = "MM-dd"
+                var str = dateFormatter.stringFromDate(entry.timeStamp!)
                 
-                label.text = str + ":" + entry.text
+                if let title = entry.title {
+                    str += " \(title)"
+                }
+                
+                if let text = entry.text {
+                    str += " \(text)"
+                }
+                
+                if let rating = entry.rating {
+                    str += " \(rating.integerValue)"
+                }
+                
+                label.text = str
             }
         }
     }

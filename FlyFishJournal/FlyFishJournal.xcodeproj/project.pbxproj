@@ -48,6 +48,7 @@
 		A81D0F6619FEC0D5003E2B28 /* ABHEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABHEntry.swift; path = NSManagedObjects/ABHEntry.swift; sourceTree = "<group>"; };
 		A81D0F6919FEF099003E2B28 /* ABHManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABHManagedObjectContext.swift; path = NSManagedObjects/ABHManagedObjectContext.swift; sourceTree = "<group>"; };
 		A81D0F6B19FF151A003E2B28 /* ABHManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABHManagedObject.swift; path = NSManagedObjects/ABHManagedObject.swift; sourceTree = "<group>"; };
+		A81D0F6E19FF53D1003E2B28 /* FlyFishJournalv2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlyFishJournalv2.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,9 +455,10 @@
 		A81D0F4219FEB1C8003E2B28 /* FlyFishJournal.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A81D0F6E19FF53D1003E2B28 /* FlyFishJournalv2.xcdatamodel */,
 				A81D0F4319FEB1C8003E2B28 /* FlyFishJournal.xcdatamodel */,
 			);
-			currentVersion = A81D0F4319FEB1C8003E2B28 /* FlyFishJournal.xcdatamodel */;
+			currentVersion = A81D0F6E19FF53D1003E2B28 /* FlyFishJournalv2.xcdatamodel */;
 			path = FlyFishJournal.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
