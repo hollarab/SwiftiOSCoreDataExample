@@ -1,8 +1,12 @@
+#tl;dr
+ * [wiki](https://github.com/hollarab/SwiftiOSCoreDataExample/wiki) - tutorial
+ * [releases](https://github.com/hollarab/SwiftiOSCoreDataExample/releases) - stable points in the project's life cycle
+
 # Audience
 Comfortable iOS/OSX developers well versed in Obj-C looking for a Swift CoreData example that's lightweight and easier to use than Apple's boilerplate.  If you're writing your first Swift app, for fun or for profit, and feeling frustrated with CoreData or what not, check this puppy out.
 
 # Overview
-Use github to create a series of wiki pages and tags that show how a from-scratch iOS application integrates with CoreData.  So, you can come across this and just snag the last tag and be on your merry way (by all means - have at it) or dig in a little and learn what's up.
+Use github to create a [series of wiki pages](https://github.com/hollarab/SwiftiOSCoreDataExample/wiki) and tags that show how a from-scratch iOS application integrates with CoreData.  So, you can come across this and just snag the last tag and be on your merry way (by all means - have at it) or dig in a little and learn what's up.
 
 This project is very much in progress and being undertaken to support presentations being given 28 Oct 2014 and 8 Nov 2014 by [Brooks](https://github.com/hollarab) at the Boulder iOS Meetup and [iOSDevCampColorado](iOSDevCampColorado.com) respectively.  By all means, if you'd like to contribute, I'm super happy for the help!
 
