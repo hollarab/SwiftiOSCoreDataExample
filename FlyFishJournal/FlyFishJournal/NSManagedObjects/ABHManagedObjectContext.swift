@@ -21,6 +21,8 @@ class ABHManagedObjectContext: NSManagedObjectContext {
         var modelString = modelName()
         assert(modelString != nil, "must implement +modelName()")
         
+        println("opening store at \(storeURL!)")
+        
         // passing nil gives you in-memory variant
         var storeType = storeURL == nil ? NSInMemoryStoreType : NSSQLiteStoreType;
         
@@ -28,8 +30,19 @@ class ABHManagedObjectContext: NSManagedObjectContext {
         var modelURL = NSBundle.mainBundle().URLForResource(modelString!, withExtension:"momd")
         assert(modelURL != nil, "Could not find model named \(modelString!)")
         
+//        var sourceMetadata = NSPersistentStoreCoordinator.metadataForPersistentStoreOfType(storeType, URL:storeURL!)
+        var error: NSError? = nil
+        var sourceMetadata:[NSObject : AnyObject]? = NSPersistentStoreCoordinator.metadataForPersistentStoreOfType(storeType,URL:storeURL!, error: &error)
+        
+        
         var model = NSManagedObjectModel(contentsOfURL: modelURL!)
         assert(model != nil, "Couldn't load model at '\(modelURL!)'")
+        
+        /*
+        model.inferredMappingModelForSourceModel(_ source: NSManagedObjectModel,
+            destinationModel destination: NSManagedObjectModel,
+            error error: NSErrorPointer) -> NSMappingModel?
+        */
         
         models.append(model!)
         
@@ -38,14 +51,30 @@ class ABHManagedObjectContext: NSManagedObjectContext {
       // Instanciate PSC
         var coordinator = NSPersistentStoreCoordinator(managedObjectModel: mergedModel!)
         
+        var destModel = coordinator.managedObjectModel
+        
+        var compatible = destModel.isConfiguration(nil, compatibleWithStoreMetadata:sourceMetadata!)
+        
         //add auto-migration to the options
         var optionsCopy:[NSObject:AnyObject]? = options
         if( optionsCopy == nil ) { optionsCopy = Dictionary() }
         optionsCopy![NSMigratePersistentStoresAutomaticallyOption] = true
-        optionsCopy![NSInferMappingModelAutomaticallyOption] = true
+        // this needs to be false
+        optionsCopy![NSInferMappingModelAutomaticallyOption] = false
+
+        
+        if !compatible {
+            var sourceModel = NSManagedObjectModel.mergedModelFromBundles(nil, forStoreMetadata:sourceMetadata!)
+            var migrationManager:NSMigrationManager = NSMigrationManager(sourceModel:sourceModel!, destinationModel:destModel)
+            println(migrationManager)
+            
+            
+            var mappingModel = NSMappingModel(fromBundles:nil, forSourceModel:sourceModel, destinationModel:destModel)
+            var worked = migrationManager.migrateStoreFromURL(storeURL!, type:storeType, options:optionsCopy, withMappingModel:mappingModel, toDestinationURL:storeURL!, destinationType:storeType, destinationOptions:nil, error:&error)
+        }
         
       // Add Stores
-        var error: NSError? = nil
+
         var store:NSPersistentStore? = coordinator.addPersistentStoreWithType(storeType, configuration: nil, URL: storeURL, options: optionsCopy, error: &error)
         
         assert(store != nil, "Store error: \(error?.description)")

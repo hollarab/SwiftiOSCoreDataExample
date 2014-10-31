@@ -15,6 +15,7 @@ class ABHEntry: ABHManagedObject {
     @NSManaged var text: String?
     @NSManaged var rating: NSNumber?
     @NSManaged var title: String?
+    @NSManaged var user: ABHUser?
 
     override class var entityName:String {
         return "ABHEntry"

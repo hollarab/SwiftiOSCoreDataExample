@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ABHEntry" representedClassName="FlyFishJournal.ABHEntry">
+        <attribute name="rating" optional="YES" attributeType="Integer 32" minValueString="0" maxValueString="5" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" defaultValueString="&quot;&quot;" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="ABHUser" inverseName="entries" inverseEntity="ABHUser" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="ABHUser" representedClassName="FlyFishJournal.ABHUser" syncable="YES">
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ABHEntry" inverseName="user" inverseEntity="ABHEntry" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ABHEntry" positionX="261" positionY="189" width="128" height="118"/>
+        <element name="ABHUser" positionX="270" positionY="225" width="128" height="73"/>
+    </elements>
+</model>
