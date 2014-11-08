@@ -9,9 +9,7 @@
 /**
 NOTE: you may have to "Edit Scheme" and add or edit command line arguments to journalPop target.  In order:
 
-$SRCROOT/default.json
-$SRCROOT/cli_db.sqlite
-$SRCROOT/FlyFishJournal.momd
+$SRCROOT/../default.json $SRCROOT/../cli_db.sqlite $SRCROOT/../FlyFishJournal.momd
 
 **/
 

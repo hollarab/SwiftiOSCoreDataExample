@@ -50,7 +50,7 @@ class ABHParser: NSObject {
         // var entry = ABHEntry.newInstanceInManagedObjectContext(moc) as ABHEntry
         
         var entity = ABHEntry.entityInManagedObjectContext(moc)
-        var entry = NSEntityDescription.insertNewObjectForEntityForName(entity!.name!, inManagedObjectContext: moc) as ABHEntry
+        var entry = NSEntityDescription.insertNewObjectForEntityForName(entity!.name!, inManagedObjectContext: moc) as NSManagedObject
         
         println( entity == entry.entity )
         
