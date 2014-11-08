@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 a. brooks hollar. All rights reserved.
 //
 
-import UIKit
 import CoreData
 
 class ABHManagedObjectContext: NSManagedObjectContext {
@@ -15,7 +14,7 @@ class ABHManagedObjectContext: NSManagedObjectContext {
         return "FlyFishJournal"
     }
     
-    class func createAt(storeURL:NSURL?, options:[NSObject:AnyObject]?) -> ABHManagedObjectContext {
+    class func createAt(storeURL:NSURL?, modelURL:NSURL?, options:[NSObject:AnyObject]?) -> ABHManagedObjectContext {
       // Load merged models
         var models:[NSManagedObjectModel] = []
         var modelString = modelName()
@@ -25,11 +24,14 @@ class ABHManagedObjectContext: NSManagedObjectContext {
         var storeType = storeURL == nil ? NSInMemoryStoreType : NSSQLiteStoreType;
         
         // code written to easily support multiple models
-        var modelURL = NSBundle.mainBundle().URLForResource(modelString!, withExtension:"momd")
-        assert(modelURL != nil, "Could not find model named \(modelString!)")
+        var modelURLToUse = modelURL
+        if( modelURLToUse == nil ){
+            modelURLToUse = NSBundle.mainBundle().URLForResource(modelString!, withExtension:"momd")
+        }
+        assert(modelURLToUse != nil, "Could not find model named \(modelString!)")
         
-        var model = NSManagedObjectModel(contentsOfURL: modelURL!)
-        assert(model != nil, "Couldn't load model at '\(modelURL!)'")
+        var model = NSManagedObjectModel(contentsOfURL: modelURLToUse!)
+        assert(model != nil, "Couldn't load model at '\(modelURLToUse!)'")
         
         models.append(model!)
         
@@ -57,6 +59,6 @@ class ABHManagedObjectContext: NSManagedObjectContext {
     }
     
     class func createInMemory() -> ABHManagedObjectContext {
-        return createAt(nil, options: nil)
+        return createAt(nil, modelURL:nil, options: nil)
     }
 }

@@ -20,6 +20,14 @@
 		A81D0F6A19FEF099003E2B28 /* ABHManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F6919FEF099003E2B28 /* ABHManagedObjectContext.swift */; };
 		A81D0F6C19FF151A003E2B28 /* ABHManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F6B19FF151A003E2B28 /* ABHManagedObject.swift */; };
 		A81D0F6D19FF1EEE003E2B28 /* ABHManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F6B19FF151A003E2B28 /* ABHManagedObject.swift */; };
+		A8D50C181A0ED7B5005D7E2E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D50C171A0ED7B5005D7E2E /* main.swift */; };
+		A8D50C1C1A0ED7F1005D7E2E /* ABHManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F6919FEF099003E2B28 /* ABHManagedObjectContext.swift */; };
+		A8D50C1D1A0ED7F1005D7E2E /* ABHManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F6B19FF151A003E2B28 /* ABHManagedObject.swift */; };
+		A8D50C1E1A0ED7F1005D7E2E /* ABHEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F6619FEC0D5003E2B28 /* ABHEntry.swift */; };
+		A8D50C1F1A0ED7F1005D7E2E /* FlyFishJournal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A81D0F4219FEB1C8003E2B28 /* FlyFishJournal.xcdatamodeld */; };
+		A8D50C211A0ED818005D7E2E /* ABHParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D50C201A0ED818005D7E2E /* ABHParser.swift */; };
+		A8D50C221A0ED818005D7E2E /* ABHParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D50C201A0ED818005D7E2E /* ABHParser.swift */; };
+		A8D50C231A0ED818005D7E2E /* ABHParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D50C201A0ED818005D7E2E /* ABHParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +39,18 @@
 			remoteInfo = FlyFishJournal;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A8D50C131A0ED7B5005D7E2E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A81D0F3B19FEB1C8003E2B28 /* FlyFishJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyFishJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +69,9 @@
 		A81D0F6919FEF099003E2B28 /* ABHManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABHManagedObjectContext.swift; path = NSManagedObjects/ABHManagedObjectContext.swift; sourceTree = "<group>"; };
 		A81D0F6B19FF151A003E2B28 /* ABHManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABHManagedObject.swift; path = NSManagedObjects/ABHManagedObject.swift; sourceTree = "<group>"; };
 		A81D0F6E19FF53D1003E2B28 /* FlyFishJournalv2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlyFishJournalv2.xcdatamodel; sourceTree = "<group>"; };
+		A8D50C151A0ED7B5005D7E2E /* populateDB */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = populateDB; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8D50C171A0ED7B5005D7E2E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A8D50C201A0ED818005D7E2E /* ABHParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABHParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +89,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A8D50C121A0ED7B5005D7E2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A81D0F3219FEB1C8003E2B28 = {
 			isa = PBXGroup;
 			children = (
+				A8D50C161A0ED7B5005D7E2E /* populateDB */,
 				A81D0F3D19FEB1C8003E2B28 /* FlyFishJournal */,
 				A81D0F5819FEB1C8003E2B28 /* FlyFishJournalTests */,
 				A81D0F3C19FEB1C8003E2B28 /* Products */,
@@ -83,6 +114,7 @@
 			children = (
 				A81D0F3B19FEB1C8003E2B28 /* FlyFishJournal.app */,
 				A81D0F5519FEB1C8003E2B28 /* FlyFishJournalTests.xctest */,
+				A8D50C151A0ED7B5005D7E2E /* populateDB */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,11 +163,20 @@
 		A81D0F6519FEC09F003E2B28 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				A8D50C201A0ED818005D7E2E /* ABHParser.swift */,
 				A81D0F6919FEF099003E2B28 /* ABHManagedObjectContext.swift */,
 				A81D0F6B19FF151A003E2B28 /* ABHManagedObject.swift */,
 				A81D0F6619FEC0D5003E2B28 /* ABHEntry.swift */,
 			);
 			name = NSManagedObjects;
+			sourceTree = "<group>";
+		};
+		A8D50C161A0ED7B5005D7E2E /* populateDB */ = {
+			isa = PBXGroup;
+			children = (
+				A8D50C171A0ED7B5005D7E2E /* main.swift */,
+			);
+			path = populateDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +217,23 @@
 			productReference = A81D0F5519FEB1C8003E2B28 /* FlyFishJournalTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A8D50C141A0ED7B5005D7E2E /* populateDB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8D50C1B1A0ED7B5005D7E2E /* Build configuration list for PBXNativeTarget "populateDB" */;
+			buildPhases = (
+				A8D50C111A0ED7B5005D7E2E /* Sources */,
+				A8D50C121A0ED7B5005D7E2E /* Frameworks */,
+				A8D50C131A0ED7B5005D7E2E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = populateDB;
+			productName = populateDB;
+			productReference = A8D50C151A0ED7B5005D7E2E /* populateDB */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -191,6 +249,9 @@
 					A81D0F5419FEB1C8003E2B28 = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = A81D0F3A19FEB1C8003E2B28;
+					};
+					A8D50C141A0ED7B5005D7E2E = {
+						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
@@ -209,6 +270,7 @@
 			targets = (
 				A81D0F3A19FEB1C8003E2B28 /* FlyFishJournal */,
 				A81D0F5419FEB1C8003E2B28 /* FlyFishJournalTests */,
+				A8D50C141A0ED7B5005D7E2E /* populateDB */,
 			);
 		};
 /* End PBXProject section */
@@ -240,6 +302,7 @@
 			files = (
 				A81D0F6719FEC0D5003E2B28 /* ABHEntry.swift in Sources */,
 				A81D0F4119FEB1C8003E2B28 /* AppDelegate.swift in Sources */,
+				A8D50C211A0ED818005D7E2E /* ABHParser.swift in Sources */,
 				A81D0F6A19FEF099003E2B28 /* ABHManagedObjectContext.swift in Sources */,
 				A81D0F6C19FF151A003E2B28 /* ABHManagedObject.swift in Sources */,
 				A81D0F4419FEB1C8003E2B28 /* FlyFishJournal.xcdatamodeld in Sources */,
@@ -254,7 +317,21 @@
 			files = (
 				A81D0F6819FEC0D5003E2B28 /* ABHEntry.swift in Sources */,
 				A81D0F5C19FEB1C8003E2B28 /* FlyFishJournalTests.swift in Sources */,
+				A8D50C221A0ED818005D7E2E /* ABHParser.swift in Sources */,
 				A81D0F6D19FF1EEE003E2B28 /* ABHManagedObject.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8D50C111A0ED7B5005D7E2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8D50C1C1A0ED7F1005D7E2E /* ABHManagedObjectContext.swift in Sources */,
+				A8D50C1D1A0ED7F1005D7E2E /* ABHManagedObject.swift in Sources */,
+				A8D50C231A0ED818005D7E2E /* ABHParser.swift in Sources */,
+				A8D50C1E1A0ED7F1005D7E2E /* ABHEntry.swift in Sources */,
+				A8D50C1F1A0ED7F1005D7E2E /* FlyFishJournal.xcdatamodeld in Sources */,
+				A8D50C181A0ED7B5005D7E2E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +496,29 @@
 			};
 			name = Release;
 		};
+		A8D50C191A0ED7B5005D7E2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A8D50C1A1A0ED7B5005D7E2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -448,6 +548,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A8D50C1B1A0ED7B5005D7E2E /* Build configuration list for PBXNativeTarget "populateDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8D50C191A0ED7B5005D7E2E /* Debug */,
+				A8D50C1A1A0ED7B5005D7E2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

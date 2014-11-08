@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var managedObjectContext: NSManagedObjectContext? = {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("FlyFishJournal.sqlite")
-        var managedObjectContext = ABHManagedObjectContext.createAt(url, options: nil)
+        var managedObjectContext = ABHManagedObjectContext.createAt(url, modelURL:nil, options: nil)
         return managedObjectContext as NSManagedObjectContext
     }()
 

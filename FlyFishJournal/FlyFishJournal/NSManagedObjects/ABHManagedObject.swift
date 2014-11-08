@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 a. brooks hollar. All rights reserved.
 //
 
-import UIKit
 import CoreData
 
 class ABHManagedObject: NSManagedObject {
